@@ -5,9 +5,9 @@ from torch.utils.data import DataLoader
 import albumentations as A
 from albumentations.pytorch import ToTensorV2
 from UNITO_Predict.UNITO_Model import UNITO
-from Dataset import dataset
-from Utils_Predict import *
-from Data_Preprocessing import *
+from .Dataset import dataset
+from .Utils_Predict import *
+from .Data_Preprocessing import *
 
 def UNITO_gating(model_path, x_axis, y_axis, gate, path_raw, num_workers, device, save_prediction_path, dest, seq = False, gate_pre = None):
   """

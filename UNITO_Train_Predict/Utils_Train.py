@@ -1,6 +1,6 @@
 import torch
 from torch.utils.data import DataLoader
-from Dataset import dataset
+from .Dataset import dataset
 
 def get_loaders(path_train, path_test, batch_size, train_transform, test_transform, num_workers = 2, pin_memory = False):
   """

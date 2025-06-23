@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 from sklearn.metrics import accuracy_score, recall_score, f1_score, precision_score
-from Data_Preprocessing import normalize
+from .Data_Preprocessing import normalize
 import cv2
 
 

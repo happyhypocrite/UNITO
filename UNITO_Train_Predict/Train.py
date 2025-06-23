@@ -6,7 +6,7 @@ from albumentations.pytorch import ToTensorV2
 import torch.nn as nn
 import torch.optim as optim
 from UNITO_Predict.UNITO_Model import UNITO
-from Utils_Train import *
+from .Utils_Train import *
 
 def train(gate, learning_rate, device, batch_size, epoches, n_worker, dest):
   """
