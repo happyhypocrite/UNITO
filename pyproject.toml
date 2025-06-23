@@ -1,0 +1,31 @@
+[project]
+name = "unito"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.9"
+dependencies = [
+    "albumentations>=2.0.8",
+    "fcsparser>=0.2.8",
+    "flowkit>=1.2.3",
+    "matplotlib>=3.9.4",
+    "numpy>=1.26.4",
+    "opencv-python>=4.11.0.86",
+    "pandas>=2.3.0",
+    "pillow>=11.2.1",
+    "scikit-learn>=1.6.1",
+    "scipy>=1.13.1",
+    "seaborn>=0.13.2",
+    "torch>=2.7.1",
+    "torchvision>=0.22.1",
+    "tqdm>=4.67.1",
+]
+
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+    "flake8>=7.3.0",
+    "isort>=6.0.1",
+    "mypy>=1.16.1",
+    "pytest>=8.4.1",
+    "pytest-cov>=6.2.1",
+]
