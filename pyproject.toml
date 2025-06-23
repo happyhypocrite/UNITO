@@ -32,4 +32,4 @@ dev = [
 
 [tool.setuptools]
 # Explicitly specify which directories are packages
-packages = ["UNITO_Train_Predict", "UNITO_Predict", "UNITO_User_Interface"]
+packages = ["UNITO_Train_Predict", "UNITO_Predict"]
