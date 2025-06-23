@@ -4,7 +4,7 @@ import torch
 from torch.utils.data import DataLoader
 import albumentations as A
 from albumentations.pytorch import ToTensorV2
-from UNITO_Model import UNITO
+from UNITO_Predict.UNITO_Model import UNITO
 from Dataset import dataset
 from Utils_Predict import *
 from Data_Preprocessing import *
