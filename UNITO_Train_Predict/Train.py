@@ -34,7 +34,14 @@ def train(gate, learning_rate, device, batch_size, epoches, n_worker, dest):
   optimizer = optim.Adam(model.parameters(), lr = learning_rate)
 
   train_ds = dataset(path_train, train_transforms)
-  train_loader = DataLoader(train_ds, batch_size = batch_size, num_workers = n_worker, pin_memory = True)
+  pin_mem = True if device.type == "cuda" else False
+
+  train_loader = DataLoader(
+      train_ds,
+      batch_size=batch_size,
+      num_workers=n_worker,
+      pin_memory=pin_mem
+  )
 
   # train
   for epoch in range(epoches):
