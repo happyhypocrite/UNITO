@@ -44,13 +44,26 @@ def UNITO_gating(model_path, x_axis, y_axis, gate, path_raw, num_workers, device
 
   preds_list, y_val_list, x_list, subj_list = predict_visualization(val_loader, model, device)
 
+  all_file_predictions = {}
+
   for ind in range(path_val.shape[0]):
 
-      data_df_pred, subj_path = mask_to_gate(y_val_list, preds_list, x_list, subj_list, x_axis, y_axis, gate, gate_pre, path_raw, save_prediction_path, dest, worker = 0, idx = ind, seq = seq)
+    data_df_pred, subj_path = mask_to_gate(y_val_list, preds_list, x_list, subj_list, x_axis, y_axis, gate, gate_pre, path_raw, save_prediction_path, dest, worker = 0, idx = ind, seq = seq)
+    
+    # Store predictions as nested dict. Key 1: csv file name, Key 2: gate, Value = [List of binary classification i.e. 1,0,1,0,0]
+    if subj_path not in all_file_predictions:
+        all_file_predictions[subj_path] = {}
+    all_file_predictions[subj_path][gate] = data_df_pred[f'{gate}_pred'].tolist()
 
+    # Final structure will look like:
+    # all_gate_predictions = {
+    #     "file1": {"Single_Cells1": [0,1,1,0], "Lymphocytes": [1,0,1,0], "Neutrophils": [0,1,0,1]},
+    #     "file2": {"Single_Cells1": [1,1,0,1], "Lymphocytes": [0,1,1,0], "Neutrophils": [1,0,0,1]}
+    # }
+    
   print("UNITO prediction finished")
 
-  return data_df_pred
+  return data_df_pred, all_file_predictions
 
 def predict_visualization(loader, model, device="mps"):
   """
